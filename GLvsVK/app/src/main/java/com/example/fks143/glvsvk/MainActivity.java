@@ -1,7 +1,11 @@
 package com.example.fks143.glvsvk;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ConfigurationInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,22 +22,24 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_gl = (Button)findViewById(R.id.btn_gl);
-        btn_vk = (Button)findViewById(R.id.btn_vk);
+        if (detectOpenGLES30()) {
+            btn_gl = (Button) findViewById(R.id.btn_gl);
+            btn_vk = (Button) findViewById(R.id.btn_vk);
 
-        btn_gl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnOnClick(view);
-            }
-        });
+            btn_gl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    btnOnClick(view);
+                }
+            });
 
-        btn_vk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnOnClick(view);
-            }
-        });
+            btn_vk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    btnOnClick(view);
+                }
+            });
+        }
     }
 
     public void btnOnClick(View view) {
@@ -45,6 +51,17 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(MainActivity.this, VKActivity.class);
             startActivity(intent);
         }
+    }
+
+    private boolean detectOpenGLES30() {
+        ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        ConfigurationInfo info = am.getDeviceConfigurationInfo();
+
+//        new AlertDialog.Builder(MainActivity.this).setTitle("OpenGL ES Version:")
+//                .setMessage(info.reqGlEsVersion)
+//                .show();
+
+        return (info.reqGlEsVersion >= 0x30000);
     }
 
     @Override
