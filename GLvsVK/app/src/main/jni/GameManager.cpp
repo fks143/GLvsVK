@@ -55,10 +55,12 @@ void GameManager::init()
 
 void GameManager::resize(int width, int height)
 {
+	controller->resize(width, height);
 	LOGD("resize");
 }
 
 void GameManager::step()
 {
+	controller->update();
 	//LOGD("step");
 }

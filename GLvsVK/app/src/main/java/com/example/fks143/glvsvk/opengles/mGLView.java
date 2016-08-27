@@ -16,6 +16,7 @@ public class mGLView extends GLSurfaceView {
     public mGLView(Context context) {
         super(context);
 
+        setEGLContextClientVersion(3);
         setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 
         renderer = new MRenderer(context);

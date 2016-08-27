@@ -9,19 +9,22 @@
 #define LOG_TAG "fks_ShaderManager"
 
 char colorShader_v[] =
-		"attribute vec4 a_position;"
-		"attribute vec4 a_color;"
-		"varying vec4 v_fragmentColor;"
+		"#version 300 es \n"
+		"layout(location = 0) in vec4 a_position;"
+		"layout(location = 1) in vec4 a_color;"
+		"out vec4 v_color;"
 		"void main()"
 		"{"
-		"	gl_Position = CC_MVPMatrix * a_position;"
-		"	v_fragmentColor = a_color;"
+		"	v_color = a_color;"
+		"	gl_Position = a_position;"
 		"}";
 char colorShader_f[] =
-		"varying vec4 v_fragmentColor;"
+		"#version 300 es \n"
+		"in vec4 v_color;"
+		"out vec4 fragColor;"
 		"void main()"
 		"{"
-		"	gl_FragColor = v_fragmentColor;"
+		"	fragColor = v_color;"
 		"}";
 
 ShaderManager::ShaderManager()

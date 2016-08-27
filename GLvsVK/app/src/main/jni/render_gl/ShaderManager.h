@@ -5,7 +5,7 @@
 #ifndef _SHADER_MANAGER_H_
 #define _SHADER_MANAGER_H_
 
-#include <GLES3/gl3.h>  
+#include <GLES3/gl3.h>
 
 class ShaderManager
 {
@@ -24,6 +24,8 @@ private:
 	GLuint linkShader(ShaderType shaderType);
 	GLuint getShader(GLenum type, ShaderType shaderType);
 	char * getShaderStr(GLenum type, ShaderType shaderType);
+
+private:
 	GLuint shaders[2];
 	
 };
