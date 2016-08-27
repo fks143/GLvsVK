@@ -17,20 +17,20 @@ GameManager * GameManager::getInstance()
 
 GameManager::GameManager()
 {
-	
+	LOGD("GameManager created");
 }
 
 void GameManager::init()
 {
-	LOGD("init");
+
 }
 
 void GameManager::resize(int width, int height)
 {
-	LOGE("resize %d %d", width, height);
+
 }
 
 void GameManager::step()
 {
-	LOGI("step");
+
 }

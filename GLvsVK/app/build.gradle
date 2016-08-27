@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             ndk {
                 moduleName "mjni"
+                abiFilters "arm64-v8a", "armeabi-v7a"
                 ldLibs "EGL", "GLESv3", "android", "log"
                 stl "gnustl_static"
                 cFlags "-std=c++11"
@@ -26,6 +27,7 @@ android {
         debug {
             ndk {
                 moduleName "mjni"
+                abiFilters "arm64-v8a", "armeabi-v7a"
                 ldLibs "EGL", "GLESv3", "android", "log"
                 stl "gnustl_static"
                 cFlags "-std=c++11"

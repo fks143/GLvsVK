@@ -2,9 +2,8 @@
 // Created by FKS143 on 2016/8/27.
 //
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifndef _GAME_MANAGER_H_
+#define _GAME_MANAGER_H_
 
 class GameManager
 {
@@ -22,6 +21,4 @@ private:
 	static GameManager * instance;
 };
 
-#ifdef __cplusplus
-extern "C" {
 #endif
