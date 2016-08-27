@@ -22,13 +22,23 @@ public class mGLView extends GLSurfaceView {
         setRenderer(renderer);
     }
 
-    private static class MRenderer implements Renderer {
-        public MRenderer(Context context) {
+    public void background() {
+        renderer.pause();
+        mGLLib.kill();
+    }
 
+    private static class MRenderer implements Renderer {
+
+        private boolean paused;
+
+        public MRenderer(Context context) {
+            paused = false;
         }
 
         public void onDrawFrame(GL10 gl) {
-            mGLLib.step();
+            if (!paused) {
+                mGLLib.step();
+            }
         }
 
         public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -37,6 +47,10 @@ public class mGLView extends GLSurfaceView {
 
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             mGLLib.init();
+        }
+
+        public void pause() {
+            paused = true;
         }
     }
 

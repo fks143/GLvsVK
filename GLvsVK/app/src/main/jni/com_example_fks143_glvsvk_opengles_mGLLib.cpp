@@ -24,3 +24,8 @@ JNIEXPORT void JNICALL Java_com_example_fks143_glvsvk_opengles_mGLLib_init
 	GameManager::getInstance()->init();
 }
 
+JNIEXPORT void JNICALL Java_com_example_fks143_glvsvk_opengles_mGLLib_kill
+(JNIEnv * env, jclass cls)
+{
+	GameManager::getInstance()->freeAll();
+}

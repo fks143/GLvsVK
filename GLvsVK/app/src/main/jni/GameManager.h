@@ -5,10 +5,13 @@
 #ifndef _GAME_MANAGER_H_
 #define _GAME_MANAGER_H_
 
+#include "core/Controller.h"
+
 class GameManager
 {
 public:
 	static GameManager * getInstance();
+	void freeAll();
 	
 	void init();
 	void step();
@@ -19,6 +22,7 @@ private:
 
 private:
 	static GameManager * instance;
+	Controller * controller;
 };
 
 #endif

@@ -31,6 +31,14 @@ JNIEXPORT void JNICALL Java_com_example_fks143_glvsvk_opengles_mGLLib_step
 JNIEXPORT void JNICALL Java_com_example_fks143_glvsvk_opengles_mGLLib_init
   (JNIEnv *, jclass);
 
+/*
+ * Class:     com_example_fks143_glvsvk_opengles_mGLLib
+ * Method:    kill
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_example_fks143_glvsvk_opengles_mGLLib_kill
+  (JNIEnv *, jclass);
+
 #ifdef __cplusplus
 }
 #endif
